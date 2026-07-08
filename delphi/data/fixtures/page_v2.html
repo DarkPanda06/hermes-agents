@@ -1,0 +1,44 @@
+<!--
+  FIXTURE: simulated venue market listing page, MARKUP VERSION 2.
+  SAME market data as page_v1.html, but the CSS classes were renamed:
+    market-card     -> mkt
+    market-question -> mkt__title
+    outcome-price   -> mkt__odds
+    market-liquidity-> mkt__liq
+    resolution-date -> mkt__resolve
+  A scraper hard-coded to v1 classes will extract NOTHING here (schema drift).
+  bot-doctor re-derives the new classes by CONTENT heuristics and self-repairs.
+-->
+<!doctype html>
+<html>
+<head><title>Venue — Open Markets</title></head>
+<body>
+  <main class="mkt-list">
+
+    <article class="mkt" data-market-id="btc_100k_2026">
+      <h3 class="mkt__title">Will Bitcoin close above $100,000 on December 31, 2026?</h3>
+      <span class="mkt__odds" data-outcome="Yes">0.62</span>
+      <span class="mkt__odds" data-outcome="No">0.38</span>
+      <span class="mkt__liq">500000</span>
+      <time class="mkt__resolve">2026-12-31</time>
+    </article>
+
+    <article class="mkt" data-market-id="fed_cut_sep_2026">
+      <h3 class="mkt__title">Will the Fed cut rates at the September 2026 meeting?</h3>
+      <span class="mkt__odds" data-outcome="Yes">0.63</span>
+      <span class="mkt__odds" data-outcome="No">0.37</span>
+      <span class="mkt__liq">220000</span>
+      <time class="mkt__resolve">2026-09-17</time>
+    </article>
+
+    <article class="mkt" data-market-id="sp500_6000_2026">
+      <h3 class="mkt__title">Will the S&P 500 close above 6000 on December 31, 2026?</h3>
+      <span class="mkt__odds" data-outcome="Yes">0.55</span>
+      <span class="mkt__odds" data-outcome="No">0.45</span>
+      <span class="mkt__liq">300000</span>
+      <time class="mkt__resolve">2026-12-31</time>
+    </article>
+
+  </main>
+</body>
+</html>

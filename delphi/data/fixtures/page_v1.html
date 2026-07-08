@@ -1,0 +1,38 @@
+<!--
+  FIXTURE: simulated venue market listing page, MARKUP VERSION 1.
+  A scraper bot parses these CSS classes. page_v2.html has the SAME market data
+  but RENAMED classes — that markup drift is what bot-doctor detects & repairs.
+-->
+<!doctype html>
+<html>
+<head><title>Venue — Open Markets</title></head>
+<body>
+  <main class="market-list">
+
+    <article class="market-card" data-market-id="btc_100k_2026">
+      <h3 class="market-question">Will Bitcoin close above $100,000 on December 31, 2026?</h3>
+      <span class="outcome-price" data-outcome="Yes">0.62</span>
+      <span class="outcome-price" data-outcome="No">0.38</span>
+      <span class="market-liquidity">500000</span>
+      <time class="resolution-date">2026-12-31</time>
+    </article>
+
+    <article class="market-card" data-market-id="fed_cut_sep_2026">
+      <h3 class="market-question">Will the Fed cut rates at the September 2026 meeting?</h3>
+      <span class="outcome-price" data-outcome="Yes">0.63</span>
+      <span class="outcome-price" data-outcome="No">0.37</span>
+      <span class="market-liquidity">220000</span>
+      <time class="resolution-date">2026-09-17</time>
+    </article>
+
+    <article class="market-card" data-market-id="sp500_6000_2026">
+      <h3 class="market-question">Will the S&P 500 close above 6000 on December 31, 2026?</h3>
+      <span class="outcome-price" data-outcome="Yes">0.55</span>
+      <span class="outcome-price" data-outcome="No">0.45</span>
+      <span class="market-liquidity">300000</span>
+      <time class="resolution-date">2026-12-31</time>
+    </article>
+
+  </main>
+</body>
+</html>
