@@ -1,0 +1,15 @@
+name: bot-doctor
+version: 0.1.0
+description: Scraper-fleet heartbeat + schema-drift self-repair.
+entrypoint: delphi.bots:heartbeat
+repair_entrypoint: delphi.bots:repair
+cadence: "*/10 * * * *"
+inputs:
+  - name: html
+    type: string
+outputs:
+  - name: bots
+    type: sqlite_table
+memory:
+  reads: [bots]
+  writes: [bots]

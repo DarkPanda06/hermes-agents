@@ -1,0 +1,17 @@
+# Delphi schedule in the Hermes runtime config shape (same cadences as delphi.cron).
+agent: delphi
+timezone: UTC
+jobs:
+  - skill: scanner
+    cron: "*/5 * * * *"
+  - skill: arb-partition
+    cron: "*/5 * * * *"
+    after: scanner
+  - skill: arb-crossvenue
+    cron: "*/15 * * * *"
+    after: scanner
+  - skill: bot-doctor
+    cron: "*/10 * * * *"
+  - skill: brief
+    cron: "0 9 * * *"
+    args: { newly_listed: true }

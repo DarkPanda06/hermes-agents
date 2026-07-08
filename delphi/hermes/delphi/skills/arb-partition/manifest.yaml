@@ -1,0 +1,19 @@
+name: arb-partition
+version: 0.1.0
+description: Partition-sum arbitrage detector with fee-aware math and receipts.
+entrypoint: delphi.arb_partition:scan
+cadence: "*/5 * * * *"
+inputs:
+  - name: size_usd
+    type: float
+    default: 5000
+  - name: threshold_pct
+    type: float
+    default: 1.0
+outputs:
+  - name: alerts
+    type: sqlite_table
+    filter: "kind = partition"
+memory:
+  reads: [markets]
+  writes: [alerts]

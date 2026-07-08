@@ -1,0 +1,15 @@
+name: brief
+version: 0.1.0
+description: Intern brief for newly-listed markets with criteria-gotcha flags.
+entrypoint: delphi.brief:build_brief
+cadence: "@on-new-listing"
+inputs:
+  - name: market
+    type: market_row
+outputs:
+  - name: brief
+    type: document
+memory:
+  reads: [markets]
+production:
+  prose_note_model: claude-opus-4-8
