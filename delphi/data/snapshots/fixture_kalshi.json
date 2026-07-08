@@ -1,0 +1,84 @@
+{
+  "_note": "FIXTURE DATA — hand-authored realistic snapshot, NOT live. Shape mirrors the Kalshi public REST API. Prices are index-aligned with outcomes. Regenerate live copies with delphi/scripts/fetch_kalshi.py.",
+  "venue": "kalshi",
+  "fetched_at": "2026-07-08T14:30:00Z",
+  "markets": [
+    {
+      "id": "k_btc_100k_2026",
+      "slug": "BTCEOY-26DEC31",
+      "question": "Will Bitcoin be above $100,000 at the end of 2026?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.58, 0.42],
+      "liquidity_usd": 350000,
+      "resolution_date": "2026-12-31",
+      "resolution_criteria": "Resolves YES if the CME CF Bitcoin Reference Rate (BRR) on December 31, 2026 at 4:00 PM ET is at or above $100,000.",
+      "partition": true
+    },
+    {
+      "id": "k_fed_sep_cut",
+      "slug": "FEDCUT-26SEP",
+      "question": "Will the Fed cut rates at the September 2026 meeting?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.63, 0.37],
+      "liquidity_usd": 220000,
+      "resolution_date": "2026-09-17",
+      "resolution_criteria": "Resolves YES if the FOMC lowers the target federal funds rate at the meeting concluding September 17, 2026.",
+      "partition": true
+    },
+    {
+      "id": "k_cpi_aug",
+      "slug": "CPIYOY-26AUG",
+      "question": "Will CPI year-over-year for August 2026 be above 3.0%?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.40, 0.60],
+      "liquidity_usd": 120000,
+      "resolution_date": "2026-09-11",
+      "resolution_criteria": "Resolves YES if the BLS-reported CPI-U year-over-year change for August 2026 exceeds 3.0%.",
+      "partition": true
+    },
+    {
+      "id": "k_recession_2026",
+      "slug": "RECESSION-26",
+      "question": "Will the US enter a recession in 2026 (NBER)?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.22, 0.78],
+      "liquidity_usd": 80000,
+      "resolution_date": "2027-06-30",
+      "resolution_criteria": "Resolves YES if the NBER declares a recession with a peak in calendar year 2026.",
+      "partition": true
+    },
+    {
+      "id": "k_shutdown_2026",
+      "slug": "SHUTDOWN-26OCT",
+      "question": "Will there be a US federal government shutdown before October 2026?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.30, 0.70],
+      "liquidity_usd": 60000,
+      "resolution_date": "2026-10-01",
+      "resolution_criteria": "Resolves YES if a federal funding lapse causes a shutdown of any duration before October 1, 2026.",
+      "partition": true
+    },
+    {
+      "id": "k_sp500_6000",
+      "slug": "SPX6000-26DEC31",
+      "question": "Will the S&P 500 close above 6000 on December 31, 2026?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.55, 0.45],
+      "liquidity_usd": 300000,
+      "resolution_date": "2026-12-31",
+      "resolution_criteria": "Resolves YES if the official S&P 500 closing level on December 31, 2026 is above 6000.",
+      "partition": true
+    },
+    {
+      "id": "k_nba_2027",
+      "slug": "NBA-CELTICS-27",
+      "question": "Will the Boston Celtics win the 2027 NBA Finals?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.16, 0.84],
+      "liquidity_usd": 100000,
+      "resolution_date": "2027-06-20",
+      "resolution_criteria": "Resolves YES if the Boston Celtics win the 2027 NBA Finals.",
+      "partition": true
+    }
+  ]
+}

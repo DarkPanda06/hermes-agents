@@ -1,0 +1,96 @@
+{
+  "_note": "FIXTURE DATA — hand-authored realistic snapshot, NOT live. Shape mirrors the Polymarket Gamma API (https://gamma-api.polymarket.com/markets). Prices are index-aligned with outcomes. Regenerate live copies with delphi/scripts/fetch_polymarket.py.",
+  "venue": "polymarket",
+  "fetched_at": "2026-07-08T14:30:00Z",
+  "markets": [
+    {
+      "id": "pm_fed_sep2026",
+      "slug": "fed-decision-september-2026-fomc",
+      "question": "What will the Fed decide at the September 2026 FOMC meeting?",
+      "outcomes": ["25 bps cut", "50 bps cut", "Hold", "Hike"],
+      "prices": [0.55, 0.08, 0.38, 0.03],
+      "liquidity_usd": 250000,
+      "resolution_date": "2026-09-17",
+      "resolution_criteria": "Resolves to the FOMC target-rate decision announced on September 17, 2026 per the official Federal Reserve statement. Exactly one outcome resolves YES.",
+      "partition": true
+    },
+    {
+      "id": "pm_btc_100k_2026",
+      "slug": "bitcoin-above-100k-dec-31-2026",
+      "question": "Will Bitcoin close above $100,000 on December 31, 2026?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.62, 0.38],
+      "liquidity_usd": 500000,
+      "resolution_date": "2026-12-31",
+      "resolution_criteria": "Resolves YES if the Coinbase BTC-USD spot price at 23:59:59 UTC on December 31, 2026 is greater than or equal to $100,000.",
+      "partition": true
+    },
+    {
+      "id": "pm_rain_nyc_2026",
+      "slug": "rain-nyc-july-15-2026",
+      "question": "Will it rain in New York City on July 15, 2026?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.505, 0.505],
+      "liquidity_usd": 200000,
+      "resolution_date": "2026-07-15",
+      "resolution_criteria": "Resolves YES if NOAA records measurable precipitation (>= 0.01 in) at Central Park on July 15, 2026.",
+      "partition": true
+    },
+    {
+      "id": "pm_pres_2028",
+      "slug": "2028-us-presidential-winning-party",
+      "question": "Which party will win the 2028 US Presidential election?",
+      "outcomes": ["Democratic", "Republican", "Other"],
+      "prices": [0.47, 0.50, 0.03],
+      "liquidity_usd": 1200000,
+      "resolution_date": "2028-11-07",
+      "resolution_criteria": "Resolves to the party of the winner of the 2028 US Presidential election as certified by Congress.",
+      "partition": true
+    },
+    {
+      "id": "pm_house_2026",
+      "slug": "house-control-after-2026-midterms",
+      "question": "Which party will control the US House after the 2026 midterms?",
+      "outcomes": ["Democratic", "Republican"],
+      "prices": [0.54, 0.47],
+      "liquidity_usd": 400000,
+      "resolution_date": "2026-11-03",
+      "resolution_criteria": "Resolves to the party holding a majority of seats in the US House when the 120th Congress is seated.",
+      "partition": true
+    },
+    {
+      "id": "pm_superbowl_lxi",
+      "slug": "chiefs-win-super-bowl-lxi",
+      "question": "Will the Kansas City Chiefs win Super Bowl LXI?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.18, 0.82],
+      "liquidity_usd": 300000,
+      "resolution_date": "2027-02-07",
+      "resolution_criteria": "Resolves YES if the Kansas City Chiefs win Super Bowl LXI.",
+      "partition": true
+    },
+    {
+      "id": "pm_gpt6_2027",
+      "slug": "openai-gpt6-before-2027",
+      "question": "Will OpenAI release GPT-6 before 2027?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.35, 0.65],
+      "liquidity_usd": 90000,
+      "resolution_date": "2026-12-31",
+      "resolution_criteria": "Resolves YES if OpenAI publicly releases a model officially named 'GPT-6' before January 1, 2027, unless the release is a limited research preview. Resolution uses OpenAI's official blog as the source.",
+      "partition": true,
+      "newly_listed": true
+    },
+    {
+      "id": "pm_sol_etf_2026",
+      "slug": "spot-solana-etf-2026",
+      "question": "Will a spot Solana ETF be approved in 2026?",
+      "outcomes": ["Yes", "No"],
+      "prices": [0.60, 0.40],
+      "liquidity_usd": 150000,
+      "resolution_date": "2026-12-31",
+      "resolution_criteria": "Resolves YES if the SEC approves at least one spot Solana ETF for listing before January 1, 2027.",
+      "partition": true
+    }
+  ]
+}
