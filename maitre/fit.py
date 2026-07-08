@@ -34,8 +34,23 @@ SURFACE_THRESHOLD = 0.58   # raw fit must exceed this to be surfaced
 
 # how a capacity_class maps to an intrinsic "crowd level" (0..1)
 CAPACITY_CROWD_LEVEL = {"intimate": 0.12, "mid": 0.50, "massive": 0.95}
-# how the profile's crowd_tolerance word maps to a tolerated crowd level (0..1)
+# how the profile's crowd_tolerance word maps to a tolerated crowd level (0..1).
+# crowd_tolerance may be stored as one of these words OR as a raw float (the
+# feedback loop nudges it numerically) — crowd_tolerance_level() handles both.
 CROWD_TOLERANCE_LEVEL = {"low": 0.20, "medium": 0.55, "high": 0.90}
+
+
+def crowd_tolerance_level(profile: dict) -> float:
+    """Tolerated crowd level as a float, whether stored as a word or a number."""
+    v = profile.get("crowd_tolerance", "medium")
+    if isinstance(v, (int, float)):
+        return float(v)
+    return CROWD_TOLERANCE_LEVEL.get(v, 0.55)
+
+
+def crowd_tolerance_word(level: float) -> str:
+    """Human label for a numeric crowd tolerance (for the 'why' strings)."""
+    return "low" if level < 0.35 else "medium" if level < 0.70 else "high"
 
 # default affinity for a tag the profile has never seen
 UNKNOWN_AFFINITY = 0.40
@@ -134,8 +149,8 @@ def _logistics_component(event: dict, profile: dict):
 
 def _crowd_penalty(event: dict, profile: dict):
     level = CAPACITY_CROWD_LEVEL.get(event.get("capacity_class"), 0.5)
-    tol_word = profile.get("crowd_tolerance", "medium")
-    tol = CROWD_TOLERANCE_LEVEL.get(tol_word, 0.55)
+    tol = crowd_tolerance_level(profile)
+    tol_word = crowd_tolerance_word(tol)
     penalty = max(0.0, level - tol)
     cap_word = event.get("capacity_class", "unknown")
     if penalty <= 0:

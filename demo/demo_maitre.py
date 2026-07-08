@@ -18,13 +18,21 @@ from pathlib import Path
 # Make the repo root importable no matter how this file is invoked.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+# The demo prints Unicode (₹, →, emoji). Force UTF-8 so it renders on a legacy
+# Windows console too, without relying on PYTHONIOENCODING being set.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 from rich import box
 
-from maitre import db, loader, fit, explain, notify
+from maitre import db, loader, fit, explain, notify, feedback
 
 console = Console(highlight=False)
 
@@ -170,7 +178,10 @@ def main() -> None:
     console.print()
     render_booking(booked, profile)
 
-    # ---- Step 4: the feedback loop (compounding proof) — wired in Task 5 ----
+    # ---- Step 4 & 5: the feedback loop (compounding proof) ----
+    feedback.run_demo_step(_CONN, console, booked_event_id=top.event_id,
+                           render_scan=render_scan, render_rejection=render_rejection,
+                           user_says=user_says, agent_says=agent_says, rule=rule)
 
     console.print()
     console.rule("[dim]seeded, deterministic, zero network — see README 'What's real vs. stubbed'[/]",

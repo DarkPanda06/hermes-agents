@@ -73,7 +73,7 @@ def _drag_score(component) -> float:
 
 
 def _crowd_receipt(event, profile, outings, component) -> Receipt:
-    tol = profile.get("crowd_tolerance", "medium")
+    tol = fit.crowd_tolerance_word(fit.crowd_tolerance_level(profile))
     phrase = _CAPACITY_PHRASE.get(event.get("capacity_class"), "a large room")
     claim = f"{phrase} vs your {tol} crowd tolerance"
     # Evidence: past nights in the SAME capacity class the user rated poorly.
