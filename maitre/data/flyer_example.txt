@@ -1,0 +1,20 @@
+[ maitre/data/flyer_example.png — text transcription stand-in ]
+
+This file stands in for a real Instagram flyer image the concierge would ingest.
+The demo does NOT run live OCR/vision (see README "What's real vs. stubbed"); the
+transcription below is what the vision model receives, and flyer_example.json is
+the structured event it returns via the prompt in scripts/extract_flyer.py.
+
+-------------------------------------------------------------------------------
+  QUARTER NOTE  presents
+  ── AN EVENING OF ACOUSTIC JAZZ ──
+     The Aditi Ramesh Trio  ·  live, unplugged
+
+  SUN 19 JULY  ·  doors 7:30 PM
+  The Quarter · Shahpur Jat (above the bookshop)
+
+  40 seats only · table service · ₹850 cover
+  (arrive early — this room fills)
+
+  @quarternote.del  ·  DM to reserve
+-------------------------------------------------------------------------------
