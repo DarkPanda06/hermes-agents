@@ -1,0 +1,36 @@
+# Hermes cron config — Maitre nightly ingestion & pre-scoring.
+# Runs while the user sleeps so the morning digest is instant.
+version: 1
+agent: maitre
+
+jobs:
+  - name: nightly-ingest
+    schedule: "0 3 * * *"          # 03:00 local, every day
+    timezone: "Asia/Kolkata"
+    skill: taste-intake
+    description: >
+      Pull new listings, OCR any queued flyers/WhatsApp forwards, upsert into the
+      events store. No user interaction.
+    inputs:
+      sources: [listings, instagram_queue, whatsapp_queue]
+    on_error: retry_then_alert
+
+  - name: nightly-prescore
+    schedule: "15 3 * * *"         # 03:15, just after ingest
+    timezone: "Asia/Kolkata"
+    skill: fit-scorer
+    description: >
+      Score every upcoming event against the current taste graph and persist
+      decisions, so "Saturday night?" returns instantly with reasons attached.
+    inputs:
+      horizon_days: 14
+    depends_on: [nightly-ingest]
+
+  - name: weekly-digest
+    schedule: "0 10 * * SAT"       # Saturday 10:00
+    timezone: "Asia/Kolkata"
+    skill: plan-composer
+    description: >
+      Compose and deliver the weekend digest (top surfaced events) to Telegram.
+    inputs:
+      top_n: 3
