@@ -1,0 +1,19 @@
+{
+  "_comment": "Pre-extracted result of running the scripts/extract_flyer.py prompt over data/flyer_example.png (transcribed in flyer_example.txt). Shape matches a seed event exactly, so it flows straight into the fit scorer.",
+  "source_image": "maitre/data/flyer_example.png",
+  "extracted_at": "2026-07-09",
+  "event": {
+    "id": "ev_flyer_quarternote",
+    "title": "The Aditi Ramesh Trio — Acoustic Jazz",
+    "venue": "The Quarter",
+    "area": "Shahpur Jat",
+    "dt": "2026-07-19T19:30:00",
+    "price_min": 850,
+    "price_max": 850,
+    "genre_tags": ["jazz", "listening_bar"],
+    "vibe_tags": ["intimate", "seated", "listening", "acoustic"],
+    "capacity_class": "intimate",
+    "source": "instagram",
+    "url": "https://instagram.com/quarternote.del"
+  }
+}
