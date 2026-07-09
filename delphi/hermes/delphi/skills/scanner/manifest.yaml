@@ -1,0 +1,14 @@
+name: scanner
+version: 0.1.0
+description: Load cached market snapshots into working memory (offline-safe).
+entrypoint: delphi.loader:load_snapshots
+cadence: "*/5 * * * *"
+inputs:
+  - name: snapshot_dir
+    type: path
+    default: delphi/data/snapshots
+outputs:
+  - name: markets
+    type: sqlite_table
+memory:
+  writes: [markets]

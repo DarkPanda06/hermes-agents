@@ -1,0 +1,8 @@
+# Delphi cron — Hermes Agent cadences (standard crontab syntax).
+# The demo does NOT use cron; it runs the whole sequence once via `make demo-delphi`.
+# m h dom mon dow   command
+*/5  * * * *   hermes run delphi/scanner
+*/5  * * * *   hermes run delphi/arb-partition
+*/15 * * * *   hermes run delphi/arb-crossvenue
+*/10 * * * *   hermes run delphi/bot-doctor
+0    9 * * *   hermes run delphi/brief --newly-listed
